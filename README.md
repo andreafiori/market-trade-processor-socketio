@@ -1,0 +1,39 @@
+Market trade processor
+=============================
+
+This socket.io application will list messages posted using a REST POST call.
+
+Posted messages will be added to the frontend table and paginated dynamically with datatable.
+
+Install and run the node server 
+---------------------------------
+
+To install the application, you need node.js and run:
+
+	npm install
+
+This will install socket.io and express modules.
+
+To run the web server:
+
+	node server.js
+
+The HTTP server will be:
+
+	http://localhost:3000/
+
+POST endpoint
+-----------------------------
+
+This endpoint will accept a raw POST string in JSON format:
+
+http://localhost:3000/api/messsage
+
+TODO
+-----------------------------
+
+- Validate posted messages and JSON fields
+- Save posted messages on file system
+- Fetch files contents and transform data into table rows on datatable
+- Transform data and build some graphs
+- Testing with Jasmine, Mocha or Chai
