@@ -1,6 +1,7 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var client = require('socket.io-client');
 
 io.on('connection', function(socket) {
     socket.on('container message', function(msg) {

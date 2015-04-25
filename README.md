@@ -27,13 +27,13 @@ POST endpoint
 
 This endpoint will accept a raw POST string in JSON format:
 
-http://localhost:3000/api/messsage
+	http://localhost:3000/api/messsage
 
 TODO
 -----------------------------
 
-- Validate posted messages and JSON fields
-- Save posted messages on file system
-- Fetch files contents and transform data into table rows on datatable
+- Validate posted messages data and JSON string
+- Save posted messages on file system after the POST call on the endpoint
+- Read files and transform contents into table rows on datatable for the first data listing
 - Transform data and build some graphs
-- Testing with Jasmine, Mocha or Chai
+- Testing with Jasmine, Mocha or Chai frameworks
