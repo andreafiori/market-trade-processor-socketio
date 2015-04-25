@@ -1,6 +1,8 @@
 Market trade processor
 =============================
 
+[![Build Status](https://travis-ci.org/andreafiori/market-trade-processor-socketio.svg?branch=master)](https://travis-ci.org/andreafiori/market-trade-processor-socketio)
+
 This socket.io application will list messages posted using a REST POST call.
 
 Posted messages will be added to the frontend table and paginated dynamically with datatable.
