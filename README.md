@@ -34,8 +34,7 @@ This endpoint will accept a raw POST string in JSON format:
 TODO
 -----------------------------
 
-- Validate posted messages data and JSON string
-- Save posted messages on file system after the POST call on the endpoint
+- Save messages on file system after the POST
 - Read files and transform contents into table rows on datatable for the first data listing
 - Transform data and build some graphs
-- Testing with Jasmine, Mocha or Chai frameworks
+- Testing and refactoring
