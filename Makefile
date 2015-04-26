@@ -1,10 +1,4 @@
-REPORTER = spec
-
 test:
-		@./node_modules/.bin/mocha \
-			--reporter $(REPORTER) \
-			test/*Test.js
+       @./node_modules/.bin/mocha -u tdd --reporter spec
 
-test-all: test
-
-.PHONY: test-all
+.PHONY: test

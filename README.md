@@ -37,4 +37,4 @@ TODO
 - Save messages on file system after the POST
 - Read files and transform contents into table rows on datatable for the first data listing
 - Transform data and build some graphs
-- Testing and refactoring
+- Testing with Mocha and refactoring
