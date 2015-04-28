@@ -1,6 +1,7 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+var fs = require('fs');
 var swig  = require('swig');
 
 var MessageValidator = require("./model/MessageValidator");
@@ -19,13 +20,11 @@ Date.prototype.toMysqlTimeStamp = function() {
 	return this.getUTCFullYear() + "_" + twoDigits(1 + this.getUTCMonth()) + "_" + twoDigits(this.getUTCDate()) + "-" + twoDigits(this.getUTCHours()) + "" + twoDigits(this.getUTCMinutes()) + "" + twoDigits(this.getUTCSeconds());
 };
 
-
 io.on('connection', function(socket) {
     socket.on('container message', function(msg) {
         io.emit('container message', msg);
     });
 });
-
 
 app.engine('html', swig.renderFile);
 
@@ -54,9 +53,26 @@ app.use(function(req, res, next) {
 });
 
 app.get('/', function(req, res) {
+
+	var dir = './app/messages/';
+	var fileContents = [];
+
+	fs.readdir(dir,function(err, files){
+		if (err) throw err;
+
+		files.forEach(function(file){
+			fs.readFile(dir + file, 'utf-8', function(err,html) {
+				if (err) throw err;
+
+				fileContents.push(html);
+			});
+		});
+	});
+
 	res.render('index', {
 		appTitle: 'Market trade processor',
-		tableTitle: 'Messages'
+		tableTitle: 'Messages',
+		fileContents: fileContents
 	});
 });
 
@@ -81,10 +97,9 @@ app.post('/api/messsage', function(req, res) {
 		io.emit('container message', MsgValidator.decodedMessage);
 
 		/* save files on file system */
-		var fs = require('fs');
 		var outputFilename = './app/messages/'+new Date().toMysqlTimeStamp()+'_msg.json';
 
-		fs.writeFile(outputFilename, JSON.stringify(rawBody, null, 4), function(err) {
+		fs.writeFile(outputFilename, JSON.stringify(MsgValidator.decodedMessage, null, 4), function(err) {
 			if(err) {
 				throw new Error('Error writing file on file system: '+err);
 			}
@@ -102,6 +117,6 @@ app.post('/api/messsage', function(req, res) {
 
 });
 
-http.listen(3000, function(){
+http.listen(3000, function() {
 	console.log('listening on *:3000');
 });
