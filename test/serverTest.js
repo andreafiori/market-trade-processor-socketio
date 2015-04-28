@@ -1,6 +1,5 @@
-var io = require('socket.io-client')
-, assert = require('assert')
-, expect = require('expect.js');
+var io = require('socket.io-client'),
+    expect = require('expect.js');
 
 describe('Suite of unit tests', function() {
 
@@ -18,7 +17,9 @@ describe('Suite of unit tests', function() {
         });
         socket.on('disconnect', function() {
             console.log('disconnected...');
-        })
+        });
+
+        done();
     });
 
     afterEach(function(done) {
