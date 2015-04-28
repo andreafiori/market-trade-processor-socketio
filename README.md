@@ -24,6 +24,11 @@ The HTTP server will be:
 
 	http://localhost:3000/
 
+Frontend
+-----------------------------
+
+I'm using swig template engine. All html views are in the views directory.
+
 POST endpoint
 -----------------------------
 

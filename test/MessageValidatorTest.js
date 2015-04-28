@@ -1,6 +1,6 @@
 var assert = require("assert");
 
-MessageValidator = require("../lib/model/MessageValidator.js");
+MessageValidator = require("../model/MessageValidator.js");
 
 describe('MessageValidator tests', function() {
 
