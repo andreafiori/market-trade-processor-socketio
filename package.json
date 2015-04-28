@@ -1,17 +1,20 @@
 {
-	"name": "market-trade-processor-socket-io",
-	"version": "0.0.1",
-	"description": "A node.js application to process trade messages and show them in a frontend",
-	"dependencies": {
-		"express": "^4.12.3",
-		"socket.io": "^1.3.5"
-	},
-	"devDependencies": {
-		"mocha": "1.6.0",
-		"should": "*"
-	},
-	"optionalDependencies": {},
-	"scripts": {
-		"test": "make test"
-	}
+  "name": "market-trade-processor-socket-io",
+  "version": "0.0.1",
+  "description": "A node.js application to process trade messages and show them in a frontend",
+  "dependencies": {
+    "express": "^4.12.3",
+    "should": "^6.0.1",
+    "socket.io": "^1.3.5",
+    "socket.io-client": "^1.3.5"
+  },
+  "devDependencies": {
+    "mocha": "1.6.0",
+    "chai": "^2.3.0",
+    "should": "*"
+  },
+  "optionalDependencies": {},
+  "scripts": {
+    "test": "mocha test"
+  }
 }

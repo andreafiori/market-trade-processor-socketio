@@ -31,6 +31,13 @@ This endpoint will accept a raw POST string in JSON format:
 
 	http://localhost:3000/api/messsage
 
+Tests
+-----------------------------
+
+Unit tests are written with Mocha:
+
+	mocha
+
 TODO
 -----------------------------
 
