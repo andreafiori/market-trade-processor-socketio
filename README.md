@@ -46,7 +46,5 @@ Unit tests are written with Mocha:
 TODO
 -----------------------------
 
-- Save messages on file system after the POST
-- Read files and transform contents into table rows on datatable for the first data listing
-- Transform data and build some graphs
-- Testing with Mocha and refactoring
+- 
+- Transform data into some graphs
