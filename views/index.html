@@ -1,78 +1,80 @@
 <!doctype html>
 <html>
+
 <head>
-    <title>{{ appTitle }}</title>
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//cdn.datatables.net/plug-ins/1.10.6/integration/bootstrap/3/dataTables.bootstrap.css">
-	<style>
-	body { font-size: 140%; }
-	</style>
+  <title>{{ appTitle }}</title>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//cdn.datatables.net/plug-ins/1.10.6/integration/bootstrap/3/dataTables.bootstrap.css">
+  <style>
+    body {
+      font-size: 140%;
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="container">
+  <div class="container">
 
-	<h1>{{ tableTitle }}</h1>
-	
-	<table id="tableMessages" class="table table-striped table-bordered" cellspacing="0" width="100%">
-		<thead>
-		<tr>
-			<th>User ID</th>
-			<th>Currency from</th>
-			<th>Currency to</th>
-			<th>Amount sell</th>
-			<th>Amount buy</th>
-			<th>Rate</th>
-			<th>Time placed</th>
-			<th>Originating country</th>
-		</tr>
-		<thead>
-		
-		<tbody>
-		</tbody>
-		
-		<tfoot>
-		<tr>
-			<th>User ID</th>
-			<th>Currency from</th>
-			<th>Currency to</th>
-			<th>Amount sell</th>
-			<th>Amount buy</th>
-			<th>Rate</th>
-			<th>Time placed</th>
-			<th>Originating country</th>
-		</tr>
-		<tfoot>
-	</table>
-</div>
+    <h1>{{ tableTitle }}</h1>
 
-<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-<script src="//cdn.datatables.net/1.10.6/js/jquery.dataTables.min.js"></script>
-<script src="//cdn.datatables.net/plug-ins/1.10.6/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <table id="tableMessages" class="table table-striped table-bordered" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>User ID</th>
+          <th>Currency from</th>
+          <th>Currency to</th>
+          <th>Amount sell</th>
+          <th>Amount buy</th>
+          <th>Rate</th>
+          <th>Time placed</th>
+          <th>Originating country</th>
+        </tr>
+        <thead>
 
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <tbody>
+        </tbody>
 
-<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-<script>
-$(document).ready(function() {
-	$('#tableMessages').DataTable();
-});
+      <tfoot>
+        <tr>
+          <th>User ID</th>
+          <th>Currency from</th>
+          <th>Currency to</th>
+          <th>Amount sell</th>
+          <th>Amount buy</th>
+          <th>Rate</th>
+          <th>Time placed</th>
+          <th>Originating country</th>
+        </tr>
+        <tfoot>
+    </table>
+  </div>
 
-var socket = io();
-socket.on('container message', function(msg) {
-		
-	$('#tableMessages').dataTable().fnAddData([
-		msg.userId,
-		msg.currencyFrom,
-		msg.currencyTo,
-		msg.amountSell,
-		msg.amountBuy,
-		msg.rate,
-		msg.timePlaced,
-		msg.originatingCountry
-	]);
-	
-});
-</script>
+  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+  <script src="//cdn.datatables.net/1.10.6/js/jquery.dataTables.min.js"></script>
+  <script src="//cdn.datatables.net/plug-ins/1.10.6/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+  <script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#tableMessages').DataTable();
+    });
+
+    var socket = io();
+    socket.on('container message', function (msg) {
+      $('#tableMessages').dataTable().fnAddData([
+        msg.userId,
+        msg.currencyFrom,
+        msg.currencyTo,
+        msg.amountSell,
+        msg.amountBuy,
+        msg.rate,
+        msg.timePlaced,
+        msg.originatingCountry
+      ]);
+    });
+  </script>
 </body>
 </html>

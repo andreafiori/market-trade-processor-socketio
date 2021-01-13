@@ -49,10 +49,6 @@ Unit tests are written with Mocha:
 
     mocha
 
-## TODO
+If you need to install Mocha:
 
-- Load messsages when the app is launched
-- Optimize file reading on index
-- Push new messages and files contennts on the index page after the POST on the endpoint
-- Transform data into some graphs
-- Update dependencies
+    npm install --global mocha
