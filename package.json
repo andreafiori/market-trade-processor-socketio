@@ -1,6 +1,6 @@
 {
   "name": "market-trade-processor-socket-io",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "A node.js application to process trade messages and show them in a frontend",
   "dependencies": {
     "expect": "^1.6.0",
@@ -12,8 +12,8 @@
     "swig": "^1.4.2"
   },
   "devDependencies": {
-    "mocha": "1.6.0",
     "chai": "^2.3.0",
+    "mocha": "^8.2.1",
     "should": "*"
   },
   "optionalDependencies": {},
