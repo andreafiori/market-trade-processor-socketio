@@ -5,11 +5,6 @@
   <title>{{ appTitle }}</title>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" href="//cdn.datatables.net/plug-ins/1.10.6/integration/bootstrap/3/dataTables.bootstrap.css">
-  <style>
-    body {
-      font-size: 140%;
-    }
-  </style>
 </head>
 
 <body>
@@ -31,21 +26,31 @@
           <th>Originating country</th>
         </tr>
         <thead>
-
         <tbody>
+          {% for msg in fileContents %}
+          <tr>
+            <td>{{ msg.userId }}</td>
+            <td>{{ msg.currencyFrom }}</td>
+            <td>{{ msg.currencyTo }}</td>
+            <td>{{ msg.amountSell }}</td>
+            <td>{{ msg.amountBuy }}</td>
+            <td>{{ msg.rate }}</td>
+            <td>{{ msg.timePlaced }}</td>
+            <td>{{ msg.originatingCountry }}</td>
+          </tr>
+          {% endfor %}
         </tbody>
-
-      <tfoot>
-        <tr>
-          <th>User ID</th>
-          <th>Currency from</th>
-          <th>Currency to</th>
-          <th>Amount sell</th>
-          <th>Amount buy</th>
-          <th>Rate</th>
-          <th>Time placed</th>
-          <th>Originating country</th>
-        </tr>
+        <tfoot>
+          <tr>
+            <th>User ID</th>
+            <th>Currency from</th>
+            <th>Currency to</th>
+            <th>Amount sell</th>
+            <th>Amount buy</th>
+            <th>Rate</th>
+            <th>Time placed</th>
+            <th>Originating country</th>
+          </tr>
         <tfoot>
     </table>
   </div>
