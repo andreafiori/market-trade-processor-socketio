@@ -1,80 +1,76 @@
-function MessageValidator() {
+'use strict';
 
-  var decodedMessage;
+module.exports = class MessageValidator {
 
-  this.checkMessageIsNotEmpty = function (message) {
+  constructor() {
+    this.decodedMessage = null;
+  }
+
+  checkMessageIsNotEmpty(message) {
     if (!message || typeof message == 'undefined') {
       throw new Error('The message is empty');
     }
   }
 
-  this.decodeMessage = function (message) {
+  decodeMessage(message) {
     try {
       this.decodedMessage = JSON.parse(message);
-
       return this.decodedMessage;
     } catch (e) {
       throw new Error("Wrong format: the message is not a valid JSON string");
     }
   }
 
-  this.getDecodedMessage = function () {
+  getDecodedMessage() {
     return this.decodedMessage;
   }
 
-  this.assertDecodedMessage = function () {
-    if (!this.decodedMessage) {
-      throw new Error('The message is not dedoded into a JSON parsed message');
-    }
-  }
-
-  this.validateUserId = function () {
+  validateUserId() {
     if (!this.decodedMessage.userId) {
       throw new Error('The userId is not set');
     }
   }
 
-  this.validateCurrencyFrom = function () {
+  validateCurrencyFrom() {
     if (!this.decodedMessage.currencyFrom) {
       throw new Error('Insert CurrencyFrom');
     }
   }
 
-  this.validateCurrencyTo = function () {
+  validateCurrencyTo() {
     if (!this.decodedMessage.currencyTo) {
       throw new Error('Insert CurrencyTo');
     }
   }
 
-  this.validateAmountSell = function () {
+  validateAmountSell() {
     if (!this.decodedMessage.amountSell) {
       throw new Error('Insert amountSell');
     }
   }
 
-  this.validateAmountBuy = function () {
+  validateAmountBuy() {
     if (!this.decodedMessage.amountBuy) {
       throw new Error('Insert amountBuy');
     }
   }
 
-  this.validateRate = function () {
+  validateRate() {
     if (!this.decodedMessage.rate) {
       throw new Error('Insert rate');
     }
   }
 
-  this.validateTimePlaced = function () {
+  validateTimePlaced() {
     if (!this.decodedMessage.timePlaced) {
       throw new Error('Insert timePlaced');
     }
   }
 
-  this.validateOriginatingCountry = function () {
+  validateOriginatingCountry() {
     if (!this.decodedMessage.originatingCountry) {
       throw new Error('Insert originatingCountry');
     }
   }
 }
 
-module.exports = MessageValidator;

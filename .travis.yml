@@ -1,7 +1,4 @@
 language: node_js
 
 node_js:
-  - "0.10"
-
-notifications:
-   email: a.fiori@cheapnet.it
+  - "10.19.0"
