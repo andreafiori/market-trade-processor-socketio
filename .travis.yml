@@ -2,3 +2,5 @@ language: node_js
 
 node_js:
   - "10.19.0"
+
+ install: travis_wait 1 mvn install

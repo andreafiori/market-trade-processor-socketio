@@ -27,7 +27,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "test": "mocha test --bail",
+    "test": "mocha test",
     "test-dev": "mocha test --watch --bail"
   }
 }
