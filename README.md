@@ -1,8 +1,11 @@
 # Market trade processor
 
-JSON messages will be POSTed to a REST endpoint.
+[![Build Status](https://travis-ci.com/andreafiori/market-trade-processor-socketio.svg?branch=master)](https://travis-ci.com/andreafiori/market-trade-processor-socketio)
 
-Posted messages will be added to the frontend table and paginated dynamically with datatable.
+A NodeJS \ Express \ Socket.io application that receives JSON messages sent via HTTP POST request.
+JSON input messages are validated before the request is completed.
+Posted messages will be added to a frontend table and paginated dynamically with Datatable.
+Messages are store in json files and their names have the format of a MySQL timestamp.
 
 ## Install and run the node server
 
