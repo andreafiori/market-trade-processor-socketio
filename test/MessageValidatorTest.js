@@ -1,11 +1,11 @@
-var assert = require("assert");
+var assert = require('assert');
 
-MessageValidator = require("../model/MessageValidator.js");
+const MessageValidator = require("../model/MessageValidator");
 
 describe('MessageValidator tests', function () {
 
   beforeEach(function (done) {
-    this.testMessageValidator = new MessageValidator();
+    this.msgValidator = new MessageValidator();
     done();
   });
 
@@ -16,107 +16,78 @@ describe('MessageValidator tests', function () {
   describe('Message Validator string decode and validation', function () {
 
     it('decode a valid JSON string', function () {
-      assert.notDeepEqual(
-        this.testMessageValidator.decodeMessage('{"name": "John"}'),
-        '{"name": "John"}'
-      );
+      assert.notDeepStrictEqual(
+        this.msgValidator.decodeMessage('{"name": "John"}'), '{"name": "John"}');
     });
 
     it('should get the userId from the decoded JSON string', function () {
-      this.testMessageValidator.decodeMessage('{"userId": "123"}');
+      this.msgValidator.decodeMessage('{"notId": "123"}');
 
       assert.throws(
-        this.testMessageValidator.validateUserId(),
-        Error
-      );
-    });
-
-    it('should get the userId from the decoded JSON string', function () {
-      this.testMessageValidator.decodeMessage('{"userId": "123"}');
-
-      assert.throws(
-        this.testMessageValidator.validateUserId(),
-        Error
-      );
-    });
-
-    it('assertDecodedMessage should throw Error exception', function () {
-      this.testMessageValidator.decodeMessage('{"userId": "123"}');
-
-      assert.throws(
-        this.testMessageValidator.assertDecodedMessage(),
-        Error
-      );
-    });
-
-    it('userId value should be in the JSON string', function () {
-      this.testMessageValidator.decodeMessage('{"userId": "123"}');
-
-      assert.throws(
-        this.testMessageValidator.validateUserId(),
+        () => this.msgValidator.validateUserId(),
         Error
       );
     });
 
     it('currencyFrom value should be in the JSON string', function () {
-      this.testMessageValidator.decodeMessage('{"currencyFrom": "USD"}');
+      this.msgValidator.decodeMessage('{"currencyFromWRONG": "USD"}');
 
       assert.throws(
-        this.testMessageValidator.validateCurrencyFrom(),
+        () => this.msgValidator.validateCurrencyFrom(),
         Error
       );
     });
 
     it('currencyTo value should be in the JSON string', function () {
-      this.testMessageValidator.decodeMessage('{"currencyTo": "EUR"}');
+      this.msgValidator.decodeMessage('{"currencyToWRONG": "EUR"}');
 
       assert.throws(
-        this.testMessageValidator.validateCurrencyTo(),
+        () => this.msgValidator.validateCurrencyTo(),
         Error
       );
     });
 
     it('amountBuy value should be in the JSON string', function () {
-      this.testMessageValidator.decodeMessage('{"amountBuy": "1245"}');
+      this.msgValidator.decodeMessage('{"amountBuyWRONG": "1245"}');
 
       assert.throws(
-        this.testMessageValidator.validateAmountBuy(),
+        () => this.msgValidator.validateAmountBuy(),
         Error
       );
     });
 
     it('amountSell value should be in the JSON string', function () {
-      this.testMessageValidator.decodeMessage('{"amountSell": "1245"}');
+      this.msgValidator.decodeMessage('{"amountSellWRONG": "1245"}');
 
       assert.throws(
-        this.testMessageValidator.validateAmountSell(),
+        () => this.msgValidator.validateAmountSell(),
         Error
       );
     });
 
     it('rate value should be in the JSON string', function () {
-      this.testMessageValidator.decodeMessage('{"rate": "0.4211"}');
+      this.msgValidator.decodeMessage('{"rateWRONG": "0.4211"}');
 
       assert.throws(
-        this.testMessageValidator.validateRate(),
+        () => this.msgValidator.validateRate(),
         Error
       );
     });
 
     it('timePlaced value should be in the JSON string', function () {
-      this.testMessageValidator.decodeMessage('{"timePlaced": "10-APR-15 11:00:24"}');
+      this.msgValidator.decodeMessage('{"timePlacedWRONG": "10-APR-15 11:00:24"}');
 
       assert.throws(
-        this.testMessageValidator.validateTimePlaced(),
+        () => this.msgValidator.validateTimePlaced(),
         Error
       );
     });
 
     it('originatingCountry value should be in the JSON string', function () {
-      this.testMessageValidator.decodeMessage('{"originatingCountry": "IT"}');
+      this.msgValidator.decodeMessage('{"originatingCountryWRONG": "IT"}');
 
       assert.throws(
-        this.testMessageValidator.validateOriginatingCountry(),
+        () => this.msgValidator.validateOriginatingCountry(),
         Error
       );
     });

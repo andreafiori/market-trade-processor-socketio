@@ -4,7 +4,7 @@ JSON messages will be POSTed to a REST endpoint.
 
 Posted messages will be added to the frontend table and paginated dynamically with datatable.
 
-## Install and run the node server 
+## Install and run the node server
 
 To install the application, you need node.js and run:
 
@@ -14,7 +14,7 @@ This will install socket.io and express modules.
 
 Run the web server:
 
-    node server.js
+    npm start
 
 Access the web server:
 
@@ -47,7 +47,7 @@ JSON string message format:
 
 Unit tests are written with Mocha:
 
-    mocha
+    npm test
 
 If you need to install Mocha:
 
